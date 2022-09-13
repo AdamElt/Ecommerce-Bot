@@ -1,2 +1,2 @@
 # Ecommerce-Bot
-A discord robot that takes the users input and searches several Ecommerce websites and returns the prices for comparison.
+A discord robot that takes the users input and searches several Ecommerce websites, returning the prices in a neatly embeded message for price comparison.
