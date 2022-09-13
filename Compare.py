@@ -21,7 +21,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
 
-    if message.author == client.user:
+    if message.author == client.user:	
         return
 
     product = message.content
@@ -46,20 +46,18 @@ async def on_message(message):
 
     resultA = soup.findAll('div', {'data-component-type': 's-search-result'})
     
-    print("WE OUT HERE")
     print(resultA)
 
-    itemA1 = resultA[0] # Item 1
-    itemA2 = resultA[1] # Item 2
+    itemA1 = resultA[0] 
+    itemA2 = resultA[1] 
    
     atag = itemA1.h2.a
     atag2 = itemA2.h2.a
 
-    atitle = atag.text.strip()      # Name of Product
+    atitle = atag.text.strip()      
     atitle2 = atag2.text.strip()
 
-    print(atitle)
-    print(atitle2)
+    print("Amazon titles obtained")
 
     aprice_parent = itemA1.find('span','a-price')
     priceA1 = aprice_parent.find('span','a-offscreen').text
@@ -67,6 +65,8 @@ async def on_message(message):
     aprice_parent = itemA2.find('span','a-price')
     priceA2 = aprice_parent.find('span','a-offscreen').text
 
+    print("Amazon prices obtained")	
+	
     # Best Buy
 
     driver.get("https://www.bestbuy.com/")
@@ -80,20 +80,20 @@ async def on_message(message):
     searchB.send_keys(Keys.RETURN)
 
     try:
-        itemBTitle = driver.find_element(By.CSS_SELECTOR,(".sku-title"))    # Name of Product
+        itemBTitle = driver.find_element(By.CSS_SELECTOR,(".sku-title"))    
 
-        ritemBTitle = itemBTitle.text
+        ritemBTitle = itemBTitle.text	
 
         print(itemBTitle.text)
-
-        print("Best Buy Price")
 
         itemBP = driver.find_element(By.CSS_SELECTOR,(".priceView-hero-price"))
 
         itemBPrice = (itemBP.text[0:7])
+	
+	print("Best Buy Price Obtained")
 
     except:
-        print("Couldn't find product at Best Buy")                  #Product not at Best Buy
+        print("Couldn't find product at Best Buy")                  
 
     # Target
 	
