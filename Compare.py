@@ -131,4 +131,4 @@ async def on_message(message):
     # Add URLS
     # Trim Amazons titles in the embeded message
 
-client.run('OTg5OTgxMTMwNDA3MTY1OTcy.GW3AWX.QEu_JNHnAn96r1E1xqfj57KeK3BN_BHs2uPVsI')
+client.run('')
